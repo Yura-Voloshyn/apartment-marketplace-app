@@ -30,6 +30,7 @@ export const StyledH2 = styled.h2`
   }
 `;
 export const StyledForm = styled.form`
+  position: relative;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -101,4 +102,11 @@ export const StyledTextarea = styled.textarea`
   @media (min-width: 768px) {
     width: 190px;
   }
+`;
+
+export const InfoText = styled.p`
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  font-size: 12px;
 `;

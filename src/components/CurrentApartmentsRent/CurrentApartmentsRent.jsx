@@ -1,24 +1,25 @@
-import {
-  StyledH2,
-  StyledSection,
-  StyledLi,
-} from './CurrentApartmentsRent.styled';
+import { StyledH2, StyledSection } from './CurrentApartmentsRent.styled';
 
-import Button from 'components/Button/Button';
+import ApartmentForRender from 'components/ApartmentForRender/ApartmentForRender';
 
-const CurrentApartmentsRent = ({ btnText, bgc }) => {
+const CurrentApartmentsRent = ({ currentApartments, onCancelRent }) => {
   return (
     <StyledSection>
       <StyledH2>Your current rent</StyledH2>
       <ul>
-        <StyledLi>
-          Sun Hotel/ 2 beds/ 1 day / $120
-          <Button
-            bgc={'#db3434'}
-            btnText={'Cancel rent'}
-            style={{ marginLeft: 'auto' }}
-          />
-        </StyledLi>
+        {currentApartments.map(
+          ({ id, title, rooms, price, isAvailable }) =>
+            (
+              <ApartmentForRender
+                isAvailable={isAvailable}
+                key={id}
+                title={title}
+                rooms={rooms}
+                price={price}
+                onCancelRent={() => onCancelRent(id)}
+              />
+            ) || []
+        )}
       </ul>
     </StyledSection>
   );

@@ -1,15 +1,18 @@
 import {
   StyledH2,
   StyledSection,
-  StyledLi,
   SelectWrap,
   ListHeadWrapper,
   StyledSelect,
-  BtnWrap,
-} from './/AvailableApartments.styled';
+} from './AvailableApartments.styled';
+import ApartmentForRender from 'components/ApartmentForRender/ApartmentForRender';
 
-import Button from 'components/Button/Button';
-const AvailableApartments = ({ btnText, bgc }) => {
+const AvailableApartments = ({
+  apartments,
+  onDeleteApartment,
+  onRentApartment,
+}) => {
+  console.log(apartments);
   return (
     <StyledSection>
       <ListHeadWrapper>
@@ -24,13 +27,20 @@ const AvailableApartments = ({ btnText, bgc }) => {
         </SelectWrap>
       </ListHeadWrapper>
       <ul>
-        <StyledLi>
-          Sun Hotel/ 2 beds/ 1 day / $120
-          <BtnWrap>
-            <Button bgc={'#422ef1'} btnText={'Rent'} />
-            <Button bgc={'#db3434'} btnText={'Delete'} />
-          </BtnWrap>
-        </StyledLi>
+        {apartments.map(
+          ({ id, title, rooms, price, isAvailable }) =>
+            (
+              <ApartmentForRender
+                isAvailable={isAvailable}
+                key={id}
+                title={title}
+                rooms={rooms}
+                price={price}
+                onRentApartment={() => onRentApartment(id)}
+                onDeleteApartment={() => onDeleteApartment(id)}
+              />
+            ) || []
+        )}
       </ul>
     </StyledSection>
   );

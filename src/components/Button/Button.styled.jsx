@@ -15,6 +15,7 @@ export const Btn = styled.button`
   align-self: center;
   color: white;
   font-size: 10px;
+  margin-left: auto;
   background-color: ${bgc => bgc.bgc};
   &:hover {
     opacity: 0.8;

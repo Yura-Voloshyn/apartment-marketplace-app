@@ -20,12 +20,6 @@ export const StyledH2 = styled.h2`
   }
 `;
 
-export const StyledLi = styled.li`
-  display: flex;
-  align-items: center;
-  background-color: white;
-  padding: 10px;
-`;
 export const ListHeadWrapper = styled.div`
   display: flex;
   align-items: flex-end;
@@ -46,16 +40,8 @@ export const SelectWrap = styled.div`
 
 export const StyledSelect = styled.select`
   font-size: 12px;
-  color: #303030;
-`;
-
-export const BtnWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  margin-left: auto;
-  @media (min-width: 768px) {
-    gap: 10px;
-    flex-direction: row;
-  }
+  color: #777777;
+  border: 1px solid #cacaca;
+  border-radius: 4px;
+  outline: none;
 `;
