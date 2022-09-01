@@ -13,6 +13,7 @@ const App = () => {
   const [apartments, setApartments] = useState(() => {
     return getStorageItem('apartments') ?? apartmentsExample;
   });
+
   const [currentApartments, setCurrentApartments] = useState([]);
   const [availableApartments, setAvailableApartments] = useState([]);
   // const [filter, setFilter] = useState('');
@@ -39,41 +40,26 @@ const App = () => {
       prevState.filter(apartment => apartment.id !== apartmentId)
     );
   };
+  // const handle
+  const updateApartmentIsAvailable = (item, id, value) => {
+    if (item.id === id) {
+      return { ...item, isAvailable: value };
+    }
+    return item;
+  };
 
   const handleRentClick = apartmentId => {
-    // console.log(apartmentId);
-    const findApartmentForRent = apartments.find(
-      apartment => apartment.id === apartmentId
+    const changedApartments = apartments.map(apartment =>
+      updateApartmentIsAvailable(apartment, apartmentId, false)
     );
-    console.log(findApartmentForRent);
-    const changeAvailableStatus = (findApartmentForRent.isAvailable = false);
-    // const changeAvailableStatus = {
-    //   ...findApartmentForRent,
-    //   isAvailable: false,
-    // };
-
-    setApartments(prevState => [...prevState, changeAvailableStatus]);
-    // setApartments(prevState =>
-    //   prevState.filter(apartment => apartment.id !== apartmentId)
-    // );
+    setApartments(changedApartments);
   };
 
   const handleCancelRentClick = apartmentId => {
-    // console.log(apartmentId);
-    const findApartmentForRent = apartments.find(
-      apartment => apartment.id === apartmentId
+    const changedApartments = apartments.map(apartment =>
+      updateApartmentIsAvailable(apartment, apartmentId, true)
     );
-
-    const changeAvailableStatus = (findApartmentForRent.isAvailable = false);
-    // const changeAvailableStatus = {
-    //   ...findApartmentForRent,
-    //   isAvailable: true,
-    // };
-
-    setApartments(prevState => [...prevState, changeAvailableStatus]);
-    // setApartments(prevState =>
-    //   prevState.filter(apartment => apartment.id !== apartmentId)
-    // );
+    setApartments(changedApartments);
   };
 
   const handleFormSubmit = data => {
@@ -94,6 +80,28 @@ const App = () => {
       : setApartments(prevApartments => [...prevApartments, apartment]);
   };
 
+  // useEffect(() => {
+  //   const filtered = availableApartments.sort((a, b) =>
+  //     a.price > b.price ? -1 : 1
+  //   );
+  //   setAvailableApartments(filtered);
+  // }, [availableApartments]);
+
+  const handleSelect = e => {
+    const optionValue = e.target.value;
+    const filtered = [
+      ...availableApartments.sort((a, b) => {
+        if (optionValue === 'fromlowest') {
+          return a.price > b.price ? 1 : -1;
+        } else {
+          return a.price > b.price ? -1 : 1;
+        }
+      }),
+    ];
+    setAvailableApartments(filtered);
+    console.log(filtered);
+  };
+
   return (
     <AppStyled>
       <Container>
@@ -105,10 +113,13 @@ const App = () => {
             currentApartments={currentApartments}
           />
         ) : (
-          <p style={{ textAlign: 'center' }}>There are no rented apartments</p>
+          <p style={{ textAlign: 'center', marginBottom: '20px' }}>
+            There are no rented apartments yet
+          </p>
         )}
         {availableApartments.length ? (
           <AvailableApartments
+            onChange={handleSelect}
             onRentApartment={handleRentClick}
             isAvailable={true}
             apartments={availableApartments}

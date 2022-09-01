@@ -4,6 +4,7 @@ import {
   SelectWrap,
   ListHeadWrapper,
   StyledSelect,
+  StyledInputFilter,
 } from './AvailableApartments.styled';
 import ApartmentForRender from 'components/ApartmentForRender/ApartmentForRender';
 
@@ -11,8 +12,8 @@ const AvailableApartments = ({
   apartments,
   onDeleteApartment,
   onRentApartment,
+  onChange,
 }) => {
-  console.log(apartments);
   return (
     <StyledSection>
       <ListHeadWrapper>
@@ -20,10 +21,11 @@ const AvailableApartments = ({
         <SelectWrap>
           {' '}
           <p style={{ fontSize: '12px' }}>Sort by:</p>
-          <StyledSelect name="select" id="select">
+          <StyledSelect onChange={onChange} name="select" id="select">
             <option value="fromlowest">Price: Lowest first</option>
-            <option value="fromhighes">Price: Highest first</option>
+            <option value="fromhighest">Price: Highest first</option>
           </StyledSelect>
+          <StyledInputFilter type="text" placeholder="number of rooms" />
         </SelectWrap>
       </ListHeadWrapper>
       <ul>

@@ -5,7 +5,7 @@ export const Btn = styled.button`
     /* margin-top: 10px; */
   }
 
-  width: 80px;
+  min-width: 80px;
   height: 30px;
   padding: 4px 8px;
   cursor: pointer;
@@ -21,7 +21,7 @@ export const Btn = styled.button`
     opacity: 0.8;
   }
   @media (max-width: 767px) {
-    align-self: flex-end;
+    align-items: center;
   }
   @media (min-width: 768px) {
     margin-left: auto;
