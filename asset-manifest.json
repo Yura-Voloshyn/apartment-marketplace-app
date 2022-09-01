@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/apartment-marketplace-app/static/css/main.aaeb584b.css",
-    "main.js": "/apartment-marketplace-app/static/js/main.ceef263e.js",
+    "main.js": "/apartment-marketplace-app/static/js/main.ad5b03cd.js",
     "index.html": "/apartment-marketplace-app/index.html",
     "main.aaeb584b.css.map": "/apartment-marketplace-app/static/css/main.aaeb584b.css.map",
-    "main.ceef263e.js.map": "/apartment-marketplace-app/static/js/main.ceef263e.js.map"
+    "main.ad5b03cd.js.map": "/apartment-marketplace-app/static/js/main.ad5b03cd.js.map"
   },
   "entrypoints": [
     "static/css/main.aaeb584b.css",
-    "static/js/main.ceef263e.js"
+    "static/js/main.ad5b03cd.js"
   ]
 }
