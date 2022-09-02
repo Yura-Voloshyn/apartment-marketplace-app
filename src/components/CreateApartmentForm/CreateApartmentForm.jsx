@@ -67,6 +67,7 @@ const CreateApartmentForm = ({ onSubmit }) => {
           <StyledLabel>
             Title*
             <StyledInput
+              maxLength={99}
               className="inputText"
               type="text"
               name="title"
@@ -81,11 +82,13 @@ const CreateApartmentForm = ({ onSubmit }) => {
             <StyledLabel>
               Rooms*
               <StyledInput
+                min={1}
                 className="inputNumbers"
                 type="number"
                 name="rooms"
                 placeholder="Number of rooms"
                 value={roomsCount}
+                pattern="[0-9]"
                 onChange={handleChange}
                 title="Number of rooms - accepts only numbers. Can’t be 0 or less than 0"
                 required
@@ -94,11 +97,13 @@ const CreateApartmentForm = ({ onSubmit }) => {
             <StyledLabel>
               Price*
               <StyledInput
+                min={1}
                 className="inputNumbers"
                 type="number"
                 name="price"
                 placeholder="99.00"
                 value={apartmentPrice}
+                pattern="[0-9]"
                 onChange={handleChange}
                 title="Price - accepts only numbers. Can’t be 0 or less than 0"
                 required
@@ -109,6 +114,7 @@ const CreateApartmentForm = ({ onSubmit }) => {
         <StyledLabel className="textarea">
           Description
           <StyledTextarea
+            maxLength={999}
             type="text"
             name="description"
             placeholder="You can add a description"

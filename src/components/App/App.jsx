@@ -17,12 +17,6 @@ const App = () => {
   const [currentApartments, setCurrentApartments] = useState([]);
   const [availableApartments, setAvailableApartments] = useState([]);
 
-  const [roomsFilter, setRoomsFilter] = useState('');
-
-  const changeFilter = e => {
-    setRoomsFilter(e.currentTarget.value);
-  };
-
   useEffect(() => {
     const curentFiltered = apartments.filter(
       apartment => apartment.isAvailable === false
@@ -46,7 +40,7 @@ const App = () => {
       prevState.filter(apartment => apartment.id !== apartmentId)
     );
   };
-  // const handle
+
   const updateApartmentIsAvailable = (item, id, value) => {
     if (item.id === id) {
       return { ...item, isAvailable: value };
@@ -86,32 +80,6 @@ const App = () => {
       : setApartments(prevApartments => [...prevApartments, apartment]);
   };
 
-  // useEffect(() => {
-  //   const filtered = availableApartments.sort((a, b) =>
-  //     a.price > b.price ? -1 : 1
-  //   );
-  //   setAvailableApartments(filtered);
-  // }, [availableApartments]);
-
-  const handleSelect = e => {
-    const optionValue = e.target.value;
-    const filtered = [
-      ...availableApartments.sort((a, b) => {
-        if (optionValue === 'fromlowest') {
-          return a.price > b.price ? 1 : -1;
-        } else {
-          return a.price > b.price ? -1 : 1;
-        }
-      }),
-    ];
-    setAvailableApartments(filtered);
-  };
-  const getVisibleApartments = () => {
-    return availableApartments.filter(apartment =>
-      apartment.rooms.toString().includes(roomsFilter)
-    );
-  };
-
   return (
     <AppStyled>
       <Container>
@@ -132,12 +100,9 @@ const App = () => {
         ) : (
           <AvailableApartments
             length={availableApartments.length}
-            onFilterChange={changeFilter}
-            value={roomsFilter}
-            onChange={handleSelect}
             onRentApartment={handleRentClick}
             isAvailable={true}
-            apartments={getVisibleApartments()}
+            apartments={availableApartments}
             onDeleteApartment={deleteApartment}
           />
         )}

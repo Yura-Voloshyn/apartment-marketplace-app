@@ -1,6 +1,6 @@
 [
   {
-    "id": 1812,
+    "id": "AAStoQhqwtxGoeCWUwvOv",
     "title": "Sun Hotel",
     "rooms": 2,
     "price": 120,
@@ -8,7 +8,7 @@
     "isAvailable": true
   },
   {
-    "id": 1943,
+    "id": "BTTtoQCqwtxRoeCWawvOv",
     "title": "Cozy Room",
     "rooms": 1,
     "price": 20,
@@ -16,7 +16,7 @@
     "isAvailable": true
   },
   {
-    "id": 1718,
+    "id": "QEWtoQhqwtxGoeCWUwvOv",
     "title": "Sun Hotel",
     "rooms": 1,
     "price": 100,
@@ -24,7 +24,7 @@
     "isAvailable": true
   },
   {
-    "id": 1697,
+    "id": "LPStoQhqwtxGoeCWUwvOv",
     "title": "Market square apartments",
     "rooms": 1,
     "price": 220,

@@ -33,7 +33,7 @@ export const SelectWrap = styled.div`
 
   margin-left: auto;
   @media (max-width: 767px) {
-    max-width: 130px;
+    max-width: 125px;
   }
   @media (min-width: 768px) {
     flex-direction: row;

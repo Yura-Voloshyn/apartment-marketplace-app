@@ -8,7 +8,7 @@ const CurrentApartmentsRent = ({ currentApartments, onCancelRent }) => {
       <StyledH2>Your current rent</StyledH2>
       <ul>
         {currentApartments.map(
-          ({ id, title, rooms, price, isAvailable }) =>
+          ({ id, title, rooms, price, description, isAvailable }) =>
             (
               <ApartmentForRender
                 isAvailable={isAvailable}
@@ -16,6 +16,7 @@ const CurrentApartmentsRent = ({ currentApartments, onCancelRent }) => {
                 title={title}
                 rooms={rooms}
                 price={price}
+                description={description}
                 onCancelRent={() => onCancelRent(id)}
               />
             ) || []
