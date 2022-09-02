@@ -61,7 +61,7 @@ export const StyledInputFilter = styled.input`
   outline: none;
   border: 1px solid #cacaca;
   border-radius: 4px;
-  padding: 2px;
+  padding: 2px 4px;
   @media (min-width: 768px) {
     max-width: 122px;
   }

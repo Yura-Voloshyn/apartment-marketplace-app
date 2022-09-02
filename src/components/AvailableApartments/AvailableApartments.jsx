@@ -13,11 +13,14 @@ const AvailableApartments = ({
   onDeleteApartment,
   onRentApartment,
   onChange,
+  filter,
+  onFilterChange,
+  length,
 }) => {
   return (
     <StyledSection>
       <ListHeadWrapper>
-        <StyledH2>Available Apartments</StyledH2>
+        <StyledH2>Available Apartments ({length})</StyledH2>
         <SelectWrap>
           {' '}
           <p style={{ fontSize: '12px' }}>Sort by:</p>
@@ -25,7 +28,12 @@ const AvailableApartments = ({
             <option value="fromlowest">Price: Lowest first</option>
             <option value="fromhighest">Price: Highest first</option>
           </StyledSelect>
-          <StyledInputFilter type="text" placeholder="number of rooms" />
+          <StyledInputFilter
+            value={filter}
+            onChange={onFilterChange}
+            type="number"
+            placeholder="Number of rooms"
+          />
         </SelectWrap>
       </ListHeadWrapper>
       <ul>

@@ -16,7 +16,13 @@ const App = () => {
 
   const [currentApartments, setCurrentApartments] = useState([]);
   const [availableApartments, setAvailableApartments] = useState([]);
-  // const [filter, setFilter] = useState('');
+
+  const [roomsFilter, setRoomsFilter] = useState('');
+
+  const changeFilter = e => {
+    setRoomsFilter(e.currentTarget.value);
+  };
+
   useEffect(() => {
     const curentFiltered = apartments.filter(
       apartment => apartment.isAvailable === false
@@ -66,7 +72,7 @@ const App = () => {
     const alreadyExist = apartments.find(
       el => el.title === data.apartmentTitle
     );
-    console.log(alreadyExist);
+
     const apartment = {
       id: nanoid(),
       title: data.apartmentTitle,
@@ -99,7 +105,11 @@ const App = () => {
       }),
     ];
     setAvailableApartments(filtered);
-    console.log(filtered);
+  };
+  const getVisibleApartments = () => {
+    return availableApartments.filter(apartment =>
+      apartment.rooms.toString().includes(roomsFilter)
+    );
   };
 
   return (
@@ -117,16 +127,19 @@ const App = () => {
             There are no rented apartments yet
           </p>
         )}
-        {availableApartments.length ? (
+        {!availableApartments.length ? (
+          <p>No available apartments right now</p>
+        ) : (
           <AvailableApartments
+            length={availableApartments.length}
+            onFilterChange={changeFilter}
+            value={roomsFilter}
             onChange={handleSelect}
             onRentApartment={handleRentClick}
             isAvailable={true}
-            apartments={availableApartments}
+            apartments={getVisibleApartments()}
             onDeleteApartment={deleteApartment}
           />
-        ) : (
-          <p>No available apartments right now</p>
         )}
       </Container>
     </AppStyled>
