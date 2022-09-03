@@ -9,4 +9,4 @@ hooks: useState, useEffect.
 
 The application has an adaptive layout so app user can be able to: view list of
 available apartments, sort by price and filter by rooms, add new apartment,
-delete an apartment - on mobile or desctop device.
+delete an apartment - on mobile or desktop device.

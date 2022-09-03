@@ -4,7 +4,7 @@
     "title": "Sun Hotel",
     "rooms": 2,
     "price": 120,
-    "description": "you can get more information about this apartment by phone +38 000 00 00 000",
+    "description": "you can get more information about this apartment by phone +38(000)-00-00-000",
     "isAvailable": true
   },
   {
@@ -12,7 +12,7 @@
     "title": "Cozy Room",
     "rooms": 1,
     "price": 20,
-    "description": "you can get more information about this apartment by phone +38 000 00 00 000",
+    "description": "you can get more information about this apartment by phone +38(000)-00-00-000",
     "isAvailable": true
   },
   {
@@ -20,7 +20,7 @@
     "title": "Sun Hotel",
     "rooms": 1,
     "price": 100,
-    "description": "you can get more information about this apartment by phone +38 000 00 00 000",
+    "description": "you can get more information about this apartment by phone +38(000)-00-00-000",
     "isAvailable": true
   },
   {
@@ -28,7 +28,7 @@
     "title": "Market square apartments",
     "rooms": 1,
     "price": 220,
-    "description": "you can get more information about this apartment by phone +38 000 00 00 000",
+    "description": "you can get more information about this apartment by phone +38(000)-00-00-000",
     "isAvailable": true
   }
   

@@ -44,12 +44,14 @@ const ApartmentForRender = ({
   };
   return (
     <StyledLi key={id}>
-      {title} / {rooms} {isRoomSingular(rooms)} / ${price}{' '}
-      <OpenModalText onClick={toggleModal}> more details...</OpenModalText>
+      {title} /{rooms} {isRoomSingular(rooms)} /${price}{' '}
+      {description.trim() !== '' && (
+        <OpenModalText onClick={toggleModal}> more details...</OpenModalText>
+      )}
       {showModal && (
         <Modal onClose={toggleModal}>
           <ModalContextrapper>
-            <ModalTitle>Apartment {title} description</ModalTitle>
+            <ModalTitle>Apartment "{title}" description:</ModalTitle>
             <ModalTextInside>{description}</ModalTextInside>
           </ModalContextrapper>
         </Modal>

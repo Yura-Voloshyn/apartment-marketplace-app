@@ -7,36 +7,37 @@ import {
   StyledInputFilter,
 } from './AvailableApartments.styled';
 import ApartmentForRender from 'components/ApartmentForRender/ApartmentForRender';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const AvailableApartments = ({
   apartments,
   onDeleteApartment,
   onRentApartment,
-  length,
+  value,
+  onChange,
 }) => {
-  const [roomsFilter, setRoomsFilter] = useState('');
+  // const [roomsFilter, setRoomsFilter] = useState('');
   const [filteredApartments, setFilteredApartments] = useState(apartments);
 
   const [selectedFilter, setSelectedFilter] = useState('none');
 
-  const changeFilter = e => {
-    setRoomsFilter(e.target.value);
-  };
+  // const changeFilter = e => {
+  //   setRoomsFilter(e.currentTarget.value);
+  // };
 
-  useEffect(() => {
-    if (!!roomsFilter && roomsFilter.trim() !== '') {
-      const roomsCount = apartments.filter(
-        apartment => +apartment.rooms === +roomsFilter
-      );
-      setFilteredApartments(roomsCount);
-    } else {
-      setFilteredApartments(apartments);
-    }
-    // }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [roomsFilter, apartments]);
+  // useEffect(() => {
+  //   if (!!roomsFilter && roomsFilter.trim() !== '') {
+  //     const roomsCount = apartments.filter(
+  //       apartment => +apartment.rooms === +roomsFilter
+  //     );
+
+  //     setFilteredApartments(roomsCount);
+  //   } else {
+  //     setFilteredApartments(apartments);
+  //   }
+  //   // }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [roomsFilter, apartments]);
 
   const handleSelect = e => {
     setSelectedFilter(e.target.value);
@@ -44,7 +45,7 @@ const AvailableApartments = ({
 
   useEffect(() => {
     const filtered = [
-      ...filteredApartments.sort((a, b) => {
+      ...apartments.sort((a, b) => {
         if (selectedFilter === 'fromlowest') {
           return a.price > b.price ? 1 : -1;
         }
@@ -57,12 +58,12 @@ const AvailableApartments = ({
     ];
     setFilteredApartments(filtered);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedFilter]);
+  }, [selectedFilter, apartments]);
 
   return (
     <StyledSection>
       <ListHeadWrapper>
-        <StyledH2>Available Apartments({length})</StyledH2>
+        <StyledH2>Available Apartments({filteredApartments.length})</StyledH2>
         <SelectWrap>
           {' '}
           <p style={{ fontSize: '12px' }}>Sort by:</p>
@@ -73,8 +74,8 @@ const AvailableApartments = ({
           </StyledSelect>
           <StyledInputFilter
             min={1}
-            value={roomsFilter}
-            onChange={changeFilter}
+            value={value}
+            onChange={onChange}
             type="number"
             placeholder="Number of rooms"
           />
