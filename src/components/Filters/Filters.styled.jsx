@@ -1,32 +1,5 @@
 import styled from 'styled-components';
 
-export const StyledSection = styled.section`
-  color: #777777;
-  width: 100%;
-
-  @media (min-width: 768px) {
-    text-align: start;
-    flex-direction: row;
-  }
-`;
-
-export const StyledH2 = styled.h2`
-
-  font-weight: 400;
-  font-size: 16px;
-  align-self: center;
-
-  @media (min-width: 768px) {
-    font-size: 20px;
-  }
-`;
-
-export const ListHeadWrapper = styled.div`
-  display: flex;
-  align-items: flex-end;
-  margin-bottom: 10px;
-`;
-
 export const SelectWrap = styled.div`
   display: flex;
   flex-direction: column;

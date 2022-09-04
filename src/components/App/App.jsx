@@ -16,7 +16,6 @@ const App = () => {
 
   const [currentApartments, setCurrentApartments] = useState([]);
   const [availableApartments, setAvailableApartments] = useState([]);
-  const [roomsFilter, setRoomsFilter] = useState('');
 
   useEffect(() => {
     const curentFiltered = apartments.filter(
@@ -80,18 +79,6 @@ const App = () => {
       ? alert(`${data.apartmentTitle} is already in available apartments`)
       : setApartments(prevApartments => [...prevApartments, apartment]);
   };
-  const changeFilter = e => {
-    setRoomsFilter(e.currentTarget.value);
-  };
-
-  const getVisibleApartments = () => {
-    if (!!roomsFilter && roomsFilter.trim() !== '') {
-      return availableApartments.filter(
-        apartment => +apartment.rooms === +roomsFilter
-      );
-    }
-    return availableApartments;
-  };
 
   return (
     <AppStyled>
@@ -114,12 +101,9 @@ const App = () => {
           </p>
         ) : (
           <AvailableApartments
-            value={roomsFilter}
-            onChange={changeFilter}
-            // length={availableApartments.length}
             onRentApartment={handleRentClick}
             isAvailable={true}
-            apartments={getVisibleApartments()}
+            apartments={availableApartments}
             onDeleteApartment={deleteApartment}
           />
         )}

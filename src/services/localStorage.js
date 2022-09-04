@@ -13,11 +13,3 @@ export const initialStorage = () => {
 export const saveApartments = key => {
   window.localStorage.setItem('apartments', JSON.stringify(key));
 };
-// export const saveApartments = (id, info) => {
-//   let apartmentsStorage = getStorageItem('apartments');
-//   const apartmentHistory = apartmentsStorage[id] || [];
-//   apartmentHistory.push(info);
-
-//   apartmentsStorage[id] = [...apartmentHistory];
-//   window.localStorage.setItem('apartments', JSON.stringify(apartmentsStorage));
-// };

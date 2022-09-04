@@ -11,7 +11,6 @@ import {
   InfoText,
 } from './CreateApartmentForm.styled';
 
-// title, rooms, price, discription
 import Button from 'components/Button/Button';
 import { useState } from 'react';
 

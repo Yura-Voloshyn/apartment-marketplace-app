@@ -18,6 +18,4 @@ export const ModalWindow = styled.div`
   background-color: #ececec;
   border-radius: 20px;
 
-  /* background-color: aqua;
-  vertical-align: middle; */
 `;

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Btn = styled.button`
   @media (max-width: 767px) {
-    /* margin-top: 10px; */
   }
 
   min-width: 80px;
